@@ -10,6 +10,9 @@ unit2 =["mg", "cg", "dg", "g", "dag", "hg", "kg", "q", "t"]
 expo3 = [10**-9,10**-6,10**-3,10**-2,10**-1,10**0,10**1,10**2,10**3]
 unit3 = ["nm","micrometre","mm","cm","dm","m","dam","hm","km",]
 
+expo4 = [10**-6, 10**-4, 10**-2, 10**0, 10**2, 10**4, 10**6]
+unit4 = ["mm2", "cm2", "dm2", "m2", "dam2", "hm2", "km2"]
+
 #-----------Formules des convertion------------
 
 # --- Convertion des degrés en radians ---
@@ -86,6 +89,15 @@ def longueur():
     print("Le resultat est :\n%.3e"%convert3, unit3[unit_f3])
     continuer = demande_continuer()
 
+def aire():
+    nbr = float(input("Quel nombre doit etre converti ? "))
+    print("liste des unites : \n0 = mm2\t1 = cm2\t2 = dm2\n3 = m2     4 = dam2   5 = hm2\n6 = km2")
+    unit_d4 = int(input("Unite du nombre de depart : "))
+    unit_f4 = int(input("Unité dans lequel le nombre doit etre converti : "))
+    convert4 = nbr * expo4[unit_d4] / expo4[unit_f4]
+    print("Le resultat est :\n%.3e"%convert4, unit3[unit_f4])
+    continuer = demande_continuer()
+
 def menu():
     # Affiche le menu et renvoie le choix de l'utilisateur
     print("\n Grandeurs disponibles : ")
@@ -94,6 +106,7 @@ def menu():
     print("3 : Energie")
     print("4 : Masse")
     print("5 : Longueur")
+    print("6 : Aire")
     choix = float(input("Choix de la grandeur : " ))
 
     if choix == 1:
@@ -106,6 +119,8 @@ def menu():
         masse()
     elif choix == 5:
         longueur()
+    elif choix == 6:
+        aire()
     else:
         print("Option inconnue")
 menu()
